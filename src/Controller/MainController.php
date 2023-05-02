@@ -3,14 +3,15 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response ;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MainController
+class MainController extends AbstractController
 {
     #[Route('/')]
-    public function Main(): Response
+    public function Index(): Response
     {
-        return new Response(' Fraann');
+        return $this->render('index.html.twig');
     }
 
     #[Route('/browse')]
