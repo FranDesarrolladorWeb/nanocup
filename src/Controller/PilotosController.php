@@ -16,7 +16,7 @@ class PilotosController extends AbstractController
     #[Route('/', name: 'app_pilotos_index', methods: ['GET'])]
     public function index(PilotosRepository $pilotosRepository): Response
     {
-        return $this->render('pilotos/index.html.twig', [
+        return $this->render('pilotos/base.html.twig', [
             'pilotos' => $pilotosRepository->findAll(),
         ]);
     }

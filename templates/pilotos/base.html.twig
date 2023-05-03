@@ -3,7 +3,7 @@
 {% block title %}Pilotos index{% endblock %}
 
 {% block body %}
-    <h1>Pilotos index</h1>
+    <h1>Lista de pilotos de la NANOCUP</h1>
 
     <table class="table">
         <thead>
@@ -11,7 +11,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Password</th>
+                {# <th>Password</th> #}
                 <th>Dorsal</th>
                 <th>actions</th>
             </tr>
@@ -22,20 +22,21 @@
                 <td>{{ piloto.id }}</td>
                 <td>{{ piloto.name }}</td>
                 <td>{{ piloto.email }}</td>
-                <td>{{ piloto.password }}</td>
+                {# <td>{{ piloto.password }}</td> #}
                 <td>{{ piloto.dorsal }}</td>
                 <td>
-                    <a href="{{ path('app_pilotos_show', {'id': piloto.id}) }}">show</a>
-                    <a href="{{ path('app_pilotos_edit', {'id': piloto.id}) }}">edit</a>
+                    <a href="{{ path('app_pilotos_show', {'id': piloto.id}) }}">Ver</a>
+                    <a href="{{ path('app_pilotos_edit', {'id': piloto.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">No hay pilotos</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_pilotos_new') }}">Create new</a>
+    <h5>
+    <a href="{{ path('app_pilotos_new') }}">Crear piloto</a>
+    </h5>
 {% endblock %}

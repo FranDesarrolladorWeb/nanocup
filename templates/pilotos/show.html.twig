@@ -30,9 +30,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_pilotos_index') }}">back to list</a>
+    <h5><a href="{{ path('app_pilotos_index') }}">Volver al listado</a></h5>
 
-    <a href="{{ path('app_pilotos_edit', {'id': piloto.id}) }}">edit</a>
+    <h5><a href="{{ path('app_pilotos_edit', {'id': piloto.id}) }}">Editar</a></h5>
 
     {{ include('pilotos/_delete_form.html.twig') }}
 {% endblock %}
