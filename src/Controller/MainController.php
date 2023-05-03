@@ -13,12 +13,4 @@ class MainController extends AbstractController
     {
         return $this->render('index.html.twig');
     }
-
-    #[Route('/browse')]
-    public function browse(): Response
-    {
-        
-        return new Response(' Fraann');
-
-    }
 }

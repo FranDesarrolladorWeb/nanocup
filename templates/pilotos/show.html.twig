@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pilotos{% endblock %}
+
+{% block body %}
+    <h1>Pilotos</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ piloto.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ piloto.name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ piloto.email }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ piloto.password }}</td>
+            </tr>
+            <tr>
+                <th>Dorsal</th>
+                <td>{{ piloto.dorsal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_pilotos_index') }}">back to list</a>
+
+    <a href="{{ path('app_pilotos_edit', {'id': piloto.id}) }}">edit</a>
+
+    {{ include('pilotos/_delete_form.html.twig') }}
+{% endblock %}
