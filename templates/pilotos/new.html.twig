@@ -3,9 +3,11 @@
 {% block title %}New Pilotos{% endblock %}
 
 {% block body %}
+<div class="container">
     <h1>Create new Pilotos</h1>
 
     {{ include('pilotos/_form.html.twig') }}
 
     <a href="{{ path('app_pilotos_index') }}">Volver al listado</a>
+</div>
 {% endblock %}

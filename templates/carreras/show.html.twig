@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carreras{% endblock %}
+
+{% block body %}
+    <h1>Carreras</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ carrera.id }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{{ carrera.fecha ? carrera.fecha|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Circuito</th>
+                <td>{{ carrera.circuito }}</td>
+            </tr>
+            <tr>
+                <th>Ganador</th>
+                <td>{{ carrera.ganador }}</td>
+            </tr>
+            <tr>
+                <th>N_vueltas</th>
+                <td>{{ carrera.nVueltas }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_carreras_index') }}">back to list</a>
+
+    <a href="{{ path('app_carreras_edit', {'id': carrera.id}) }}">edit</a>
+
+    {{ include('carreras/_delete_form.html.twig') }}
+{% endblock %}

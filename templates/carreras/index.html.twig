@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{% block styles %} <link rel="stylesheet" href="{{ asset('styles/table.css') }}"> {% endblock %}
+
+{% block title %}Calendario{% endblock %}
+
+{% block body %}
+    <h1>Calendario</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Fecha</th>
+                <th>Circuito</th>
+                <th>Ganador</th>
+                <th>Vueltas</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <th>Acciones</th>
+                {% endif %}
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for carrera in carreras %}
+            <tr>
+                {# <td>{{ carrera.id }}</td> #}
+                <td>{{ carrera.fecha ? carrera.fecha|date('Y-m-d') : '' }}</td>
+                <td>{{ carrera.circuito }}</td>
+                <td>{{ carrera.ganador }}</td>
+                <td>{{ carrera.nVueltas }}</td>
+                
+                {% if is_granted('ROLE_ADMIN') %}
+                    <td>
+                        <a href="{{ path('app_carreras_show', {'id': carrera.id}) }}">Ver</a>
+                        <a href="{{ path('app_carreras_edit', {'id': carrera.id}) }}">Editar</a>
+                    </td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Calendario aún por determinar</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <h5><a href="{{ path('app_carreras_new') }}">Create new</a></h5>
+    {% endif %}
+{% endblock %}

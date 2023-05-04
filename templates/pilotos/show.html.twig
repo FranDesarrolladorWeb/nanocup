@@ -3,6 +3,7 @@
 {% block title %}Pilotos{% endblock %}
 
 {% block body %}
+<div class="container">
     <h1>Pilotos</h1>
 
     <table class="table">
@@ -35,4 +36,5 @@
     <h5><a href="{{ path('app_pilotos_edit', {'id': piloto.id}) }}">Editar</a></h5>
 
     {{ include('pilotos/_delete_form.html.twig') }}
+</div>
 {% endblock %}

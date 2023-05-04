@@ -19,6 +19,9 @@ class Equipos
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $logotipo = null;
 
+    #[ORM\Column(length: 255)]
+    private ?int $puntos = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +47,18 @@ class Equipos
     public function setLogotipo(?string $logotipo): self
     {
         $this->logotipo = $logotipo;
+
+        return $this;
+    }
+
+    public function getPuntos(): ?string
+    {
+        return $this->puntos;
+    }
+
+    public function setPuntos(?string $puntos): self
+    {
+        $this->puntos = $puntos;
 
         return $this;
     }

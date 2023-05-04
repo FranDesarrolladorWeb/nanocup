@@ -1,58 +1,52 @@
 {% extends 'base.html.twig' %}
 {% block styles %} <link rel="stylesheet" href="{{ asset('styles/table.css') }}"> {% endblock %}
 
-{% block title %}Pilotos index{% endblock %}
+{% block title %}Clasificación de escuderías{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>Lista de pilotos de la NANOCUP</h1>
+    <h1>Clasificación de escuderías</h1>
 
-
-
-<table>
-	<thead>
+    <table class="table">
+        <thead>
             <tr>
                 {% if is_granted('ROLE_ADMIN') %}
                 <th>Id</th>
                 {% endif %}
+                <th>Logotipo</th>
                 <th>Nombre</th>
-                <th>Email</th>
-                {# <th>Password</th> #}
-                <th>Dorsal</th>
+                <th>Puntos</th>
                 {% if is_granted('ROLE_ADMIN') %}
                     <th>Acciones</th>
                 {% endif %}
-                
             </tr>
         </thead>
-	<tbody>
-        {% for piloto in pilotos %}
+        <tbody>
+        {% for equipo in equipos|sort((a, b) => b.puntos <=> a.puntos) %}
             <tr>
                 {% if is_granted('ROLE_ADMIN') %}
-                        <td>{{ piloto.id }}</td>
+                        <td>{{ equipo.id }}</td>
                 {% endif %}
-                <td>{{ piloto.name }}</td>
-                <td>{{ piloto.email }}</td>
-                {# <td>{{ piloto.password }}</td> #}
-                <td>{{ piloto.dorsal }}</td>
+                <td><img style="max-width:100px" src="{{ equipo.logotipo }}"/></td>
+                <td>{{ equipo.nombre }}</td>
+                <td>{{ equipo.puntos }}</td>
                 {% if is_granted('ROLE_ADMIN') %}
                     <td>
-                        <a href="{{ path('app_carreras_show', {'id': piloto.id}) }}">show</a>
-                        <a href="{{ path('app_carreras_edit', {'id': piloto.id}) }}">edit</a>
+                        <a href="{{ path('app_equipos_show', {'id': equipo.id}) }}">Ver</a>
+                        <a href="{{ path('app_equipos_edit', {'id': equipo.id}) }}">Editar</a>
                     </td>
                 {% endif %}
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">No hay pilotos</td>
+                <td colspan="4">No hay escuderías</td>
             </tr>
         {% endfor %}
         </tbody>
-</table>
+    </table>
+
     {% if is_granted('ROLE_ADMIN') %}
         <h5>
-            <a href="{{ path('app_pilotos_new') }}">Crear piloto</a>
+            <a href="{{ path('app_equipos_new') }}">Crear escudería</a>
         </h5>
     {% endif %}
-</div>
 {% endblock %}
