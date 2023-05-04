@@ -16,6 +16,7 @@ class PilotosType extends AbstractType
             ->add('email')
             ->add('password')
             ->add('dorsal')
+            ->add('puntos')
         ;
     }
 

@@ -25,6 +25,9 @@ class Pilotos
     #[ORM\Column(length: 255)]
     private ?string $dorsal = null;
 
+    #[ORM\Column(length: 255)]
+    private ?int $puntos = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class Pilotos
     public function setDorsal(string $dorsal): self
     {
         $this->dorsal = $dorsal;
+
+        return $this;
+    }
+
+    public function getPuntos(): ?string
+    {
+        return $this->puntos;
+    }
+
+    public function setPuntos(string $puntos): self
+    {
+        $this->puntos = $puntos;
 
         return $this;
     }

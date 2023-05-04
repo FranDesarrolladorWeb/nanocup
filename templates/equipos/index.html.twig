@@ -10,7 +10,7 @@
         <thead>
             <tr>
                 {% if is_granted('ROLE_ADMIN') %}
-                <th>Id</th>
+                {# <th>Id</th> #}
                 {% endif %}
                 <th>Logotipo</th>
                 <th>Nombre</th>
@@ -24,7 +24,7 @@
         {% for equipo in equipos|sort((a, b) => b.puntos <=> a.puntos) %}
             <tr>
                 {% if is_granted('ROLE_ADMIN') %}
-                        <td>{{ equipo.id }}</td>
+                        {# <td>{{ equipo.id }}</td> #}
                 {% endif %}
                 <td><img style="max-width:100px" src="{{ equipo.logotipo }}"/></td>
                 <td>{{ equipo.nombre }}</td>

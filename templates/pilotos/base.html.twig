@@ -13,10 +13,11 @@
 	<thead>
             <tr>
                 {% if is_granted('ROLE_ADMIN') %}
-                <th>Id</th>
+                {# <th>Id</th> #}
+                {# <th>Email</th> #}
                 {% endif %}
                 <th>Nombre</th>
-                <th>Email</th>
+                <th>Puntos</th>
                 {# <th>Password</th> #}
                 <th>Dorsal</th>
                 {% if is_granted('ROLE_ADMIN') %}
@@ -26,19 +27,21 @@
             </tr>
         </thead>
 	<tbody>
-        {% for piloto in pilotos %}
+    
+        {% for piloto in pilotos|sort((a, b) => b.puntos <=> a.puntos) %}
             <tr>
                 {% if is_granted('ROLE_ADMIN') %}
-                        <td>{{ piloto.id }}</td>
+                        {# <td>{{ piloto.id }}</td> #}
+                        {# <td>{{ piloto.email }}</td> #}
                 {% endif %}
                 <td>{{ piloto.name }}</td>
-                <td>{{ piloto.email }}</td>
+                <td>{{ piloto.puntos }}</td>
                 {# <td>{{ piloto.password }}</td> #}
                 <td>{{ piloto.dorsal }}</td>
                 {% if is_granted('ROLE_ADMIN') %}
                     <td>
-                        <a href="{{ path('app_carreras_show', {'id': piloto.id}) }}">show</a>
-                        <a href="{{ path('app_carreras_edit', {'id': piloto.id}) }}">edit</a>
+                        <a href="{{ path('app_pilotos_show', {'id': piloto.id}) }}">show</a>
+                        <a href="{{ path('app_pilotos_edit', {'id': piloto.id}) }}">edit</a>
                     </td>
                 {% endif %}
             </tr>
