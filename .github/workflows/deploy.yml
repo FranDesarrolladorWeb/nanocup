@@ -17,6 +17,6 @@ jobs:
       with:
         ssh_private_key: Franciscochavezromero123
         remote_host: 134.0.10.55
-        remote_user: nanocupf9a
+        remote_user: "nanocupf9a"
         source: "."
-        dest: "/path/to/your/app"
+        dest: "https://nanocupf1.com/"
