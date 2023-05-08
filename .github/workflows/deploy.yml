@@ -18,5 +18,4 @@ jobs:
         ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
         remote_host: 134.0.10.55
         remote_user: "nanocupf9a"
-        source: "."
-        dest: "https://nanocupf1.com/"
+        source: "https://nanocupf1.com/"
