@@ -16,6 +16,6 @@ jobs:
       uses: easingthemes/ssh-deploy@v3
       with:
         ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        remote_host: 134.0.10.55
-        remote_user: nanocupf9a
+        remote_host: ${{ secrets.SSH_HOST }}
+        remote_user: ${{ secrets.SSH_USER }}
         source: https://nanocupf1.com/
